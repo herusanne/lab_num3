@@ -1,6 +1,5 @@
 package com.lab4;
 import com.lab4.Book;
-
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -62,7 +61,7 @@ public void save(String filename) throws IOException {
             title = scanner.nextLine();
             quantity = Integer.parseInt(scanner.nextLine());
             price = Integer.parseInt(scanner.nextLine());
-            this.list.add(new Book(seller, title, quantity, price));
+           this.list.add(new Book(seller, title, quantity, price));
         }
         scanner.close();
     }
@@ -93,7 +92,7 @@ public void save(String filename) throws IOException {
         } catch (IOException ex) {
             ex.printStackTrace();
         } catch (ClassNotFoundException c) {
-            System.out.println("Student class not found");
+            System.out.println("Book class not found");
             c.printStackTrace();
         }
     }

@@ -13,7 +13,7 @@ public class Main {
 
         long timeStart = System.currentTimeMillis(), t1, t2, t3, t4, t5;
         for (int i = 0; i < N; i++) {
-            db.add("John" + Math.random(), (int) (Math.random() * 100));
+            db.add("Ivanov" + Math.random(), "Hunger games" + Math.random(), (int) (Math.random() * 100),(int) (Math.random() * 100));
         }
         t1 = System.currentTimeMillis() - timeStart;
 
@@ -30,9 +30,9 @@ public class Main {
         t3 = System.currentTimeMillis() - timeStart;
 
         timeStart = System.currentTimeMillis();
-        db.jacksonSerialize("students.json");
+        db.jacksonSerialize("books.json");
         db.clear();
-        db.jacksonDeserialize("students.json");
+        db.jacksonDeserialize("books.json");
         t4 = System.currentTimeMillis() - timeStart;
 
         timeStart = System.currentTimeMillis();
