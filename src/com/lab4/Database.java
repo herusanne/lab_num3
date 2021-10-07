@@ -92,7 +92,7 @@ public void save(String filename) throws IOException {
         } catch (IOException ex) {
             ex.printStackTrace();
         } catch (ClassNotFoundException c) {
-            System.out.println("Book class not found");
+            System.out.println("Books class not found");
             c.printStackTrace();
         }
     }

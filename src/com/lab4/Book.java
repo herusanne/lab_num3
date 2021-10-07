@@ -24,7 +24,12 @@ public class Book implements Serializable {
 
     public Book() {
     }
-
+    public Book(String seller, String title, int quantity, int price) {
+        this.seller= seller;
+        this.title=title;
+        this.quantity=quantity;
+        this.price=price;
+    }
     public String getSeller() {
         return this.seller;
     }
