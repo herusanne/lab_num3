@@ -1,19 +1,20 @@
 package com.lab4;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Main {
 
     public static void main(String[] args) throws IOException {
         final int N = 10;
-	Database db = new Database();
-    db.add("Ivanov","Hunger games",20, 500);
+        Database db = new Database();
+        db.add("Ivanov", "Hunger games", 20, 500);
         System.out.println(db);
 
         long timeStart = System.currentTimeMillis(), t1, t2, t3, t4, t5;
         for (int i = 0; i < N; i++) {
-            db.add("Ivanov" + Math.random(), "Hunger games" + Math.random(), (int) (Math.random() * 100),(int) (Math.random() * 100));
+            db.add("Ivanov " + Math.random(), "Hunger games" + Math.random(), (int) (Math.random() * 100), (int) (Math.random() * 100));
         }
         t1 = System.currentTimeMillis() - timeStart;
 
@@ -47,6 +48,13 @@ public class Main {
         System.out.println("Java serialization/des:		" + t3 + " ms");
         System.out.println("Jackson serialization/des:	" + t4 + " ms");
         System.out.println("FASTJson serialization/des:	" + t5 + " ms");
+
+        ArrayList<Book> foundedBooks = db.findNeededSeller("Ivanov", "db_test.txt");
+
+        for (Book book : foundedBooks) {
+            System.out.println(book.getSeller());
+            System.out.println(book.getTitle());
+        }
 
 /*      System.out.println(db.remove(1));
         System.out.println(db);*/

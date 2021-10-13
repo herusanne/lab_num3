@@ -20,21 +20,25 @@ public class Book implements Serializable {
     private String title;
     private int quantity;
     private int price;
-   // private Date dateOfSale;
+    // private Date dateOfSale;
 
     public Book() {
     }
+
     public Book(String seller, String title, int quantity, int price) {
-        this.seller= seller;
-        this.title=title;
-        this.quantity=quantity;
-        this.price=price;
+        this.seller = seller;
+        this.title = title;
+        this.quantity = quantity;
+        this.price = price;
     }
+
     public String getSeller() {
         return this.seller;
     }
 
-    public void setSeller(String seller) {this.seller = seller.strip();}
+    public void setSeller(String seller) {
+        this.seller = seller.strip();
+    }
 
     public String getTitle() {
         return this.title;
@@ -49,7 +53,7 @@ public class Book implements Serializable {
     }
 
     public void setQuantity(int quantity) {
-        this.quantity = quantity >0?quantity:-1;
+        this.quantity = quantity > 0 ? quantity : -1;
     }
 
     public double getPrice() {
@@ -57,7 +61,7 @@ public class Book implements Serializable {
     }
 
     public void setPrice(int price) {
-        this.price = price >0 ? price:-1;
+        this.price = price > 0 ? price : -1;
     }
 
     /*
@@ -79,7 +83,7 @@ public class Book implements Serializable {
                 ", title='" + title + '\'' +
                 ", quantity=" + quantity +
                 ", price=" + price +
-              //  ", dateOfSale=" + dateOfSale +
+                //  ", dateOfSale=" + dateOfSale +
                 '}';
     }
 }
