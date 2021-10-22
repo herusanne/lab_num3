@@ -6,9 +6,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
-public class Database implements Serializable{
+public class Database implements Serializable {
     public ArrayList<Book> list;
 
     public int getNumber() {
@@ -20,9 +21,10 @@ public class Database implements Serializable{
     }
 
     private int number;
+
     public Database() {
         list = new ArrayList<>();
-        number =0;
+        number = 0;
     }
 
     public void add(Book book) {
@@ -43,7 +45,7 @@ public class Database implements Serializable{
 
     @Override
     public String toString() {
-        return "Database{" + list + '}'+'\n';
+        return "Database{" + list + '}' + '\n';
     }
 
     public void save(String filename) throws IOException {
@@ -128,10 +130,10 @@ public class Database implements Serializable{
     }
 
     public void serializeFastJSON(String filename) throws IOException {
-
+        List<Book> list = this.list;
         FileWriter outStream = new FileWriter(filename);
         BufferedWriter bw = new BufferedWriter(outStream);
-        bw.write(JSON.toJSONString(this));
+        bw.write(JSON.toJSONString(list));
         bw.close();
         outStream.close();
     }
@@ -139,10 +141,13 @@ public class Database implements Serializable{
     public void deserializeFastJSON(String filename) throws IOException {
         Scanner scanner = new Scanner(new FileReader(filename));
         this.clear();
-        ArrayList<JSONObject> JSONlist = JSON.parseObject(scanner.nextLine(), ArrayList.class);
-        for (JSONObject st : JSONlist) {
-            this.add(new Book(st.getString("seller"), st.getString("title"), st.getIntValue("quantity"), st.getIntValue("price")));
+        List<Book> JSONlist = null;
+
+        while (scanner.hasNextLine()) {
+            JSONlist = JSON.parseArray(scanner.nextLine(), Book.class);
         }
+
+        this.list = (ArrayList<Book>) JSONlist;
         scanner.close();
     }
 
