@@ -1,6 +1,5 @@
 package com.lab4;
 
-import com.lab4.Book;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -9,11 +8,21 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Database {
+public class Database implements Serializable{
     public ArrayList<Book> list;
 
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
+    private int number;
     public Database() {
         list = new ArrayList<>();
+        number =0;
     }
 
     public void add(Book book) {
@@ -34,7 +43,7 @@ public class Database {
 
     @Override
     public String toString() {
-        return "Database{" + list + '}';
+        return "Database{" + list + '}'+'\n';
     }
 
     public void save(String filename) throws IOException {
@@ -119,9 +128,10 @@ public class Database {
     }
 
     public void serializeFastJSON(String filename) throws IOException {
+
         FileWriter outStream = new FileWriter(filename);
         BufferedWriter bw = new BufferedWriter(outStream);
-        bw.write(JSON.toJSONString(this.list));
+        bw.write(JSON.toJSONString(this));
         bw.close();
         outStream.close();
     }

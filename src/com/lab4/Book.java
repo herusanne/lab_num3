@@ -78,12 +78,11 @@ public class Book implements Serializable {
 */
     @Override
     public String toString() {
-        return "Book{" +
+        return "\nBook{\n" +
                 "seller='" + seller + '\'' +
-                ", title='" + title + '\'' +
-                ", quantity=" + quantity +
-                ", price=" + price +
-                //  ", dateOfSale=" + dateOfSale +
+                ", \ntitle='" + title + '\'' +
+                ", \nquantity=" + quantity +
+                ", \nprice=" + price +
                 '}';
     }
 }

@@ -10,11 +10,13 @@ public class Main {
         final int N = 10;
         Database db = new Database();
         db.add("Ivanov", "Hunger games", 20, 500);
+        db.add("Tanjiro", "Demon Slayer", 50, 1000);
         System.out.println(db);
 
         long timeStart = System.currentTimeMillis(), t1, t2, t3, t4, t5;
         for (int i = 0; i < N; i++) {
             db.add("Ivanov " + Math.random(), "Hunger games" + Math.random(), (int) (Math.random() * 100), (int) (Math.random() * 100));
+            db.add("Tanjiro " + Math.random(), "Demon Slayer" + Math.random(), (int) (Math.random() * 100), (int) (Math.random() * 100));
         }
         t1 = System.currentTimeMillis() - timeStart;
 
