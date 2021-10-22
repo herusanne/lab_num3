@@ -51,7 +51,7 @@ public class Main {
         System.out.println("Jackson serialization/des:	" + t4 + " ms");
         System.out.println("FASTJson serialization/des:	" + t5 + " ms");
 
-        ArrayList<Book> foundedBooks = db.findNeededSeller("Ivanov", "db_test.txt");
+        ArrayList<Book> foundedBooks = db.findNeededSeller("Ivanov", "db.txt");
 
         for (Book book : foundedBooks) {
             System.out.println(book.getSeller());
