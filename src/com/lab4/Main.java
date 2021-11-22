@@ -57,6 +57,8 @@ public class Main {
             System.out.println(book.getSeller());
             System.out.println(book.getTitle());
         }
+        
+        System.out.println("Аня лох");
 
 /*      System.out.println(db.remove(1));
         System.out.println(db);*/
